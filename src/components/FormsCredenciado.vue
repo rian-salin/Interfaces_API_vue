@@ -5,7 +5,6 @@
 </script>
 
 <template>
-<main class="formulario">
     <section>
         <h3>Dados Credenciado ou Estabelecimento</h3>
 
@@ -37,9 +36,85 @@
             </div>
         </div>
 
-        <a class="next-page" href="/projeto-neo/pages/homol-Produc.html" onclick="carregar('/homol-Produc'); return false;">Próximo</a>
+        <router-link class="next-page" to="/Homol&Produc">->Proximo</router-link>
         
     </section>
-</main>
+
 </template>
 
+<style scoped>
+
+section{
+  background-color: gray;
+  width: 700px;
+  height: 780px;
+  margin-top:40px;
+  margin-left: 100px;
+  padding: 1%;
+  border-radius: 26px;
+    
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    gap: 10px;
+}
+
+.titulo-data{
+    display: flex;
+    gap: 300px;
+}
+
+label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 3px;
+    color: #333;
+}
+
+input {
+    padding: 10px;
+    width: 650px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.convenios-card {
+    background-color: #f8f9fa;
+    border-left: 5px solid rgb(122, 122, 122);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+    max-width: 400px;
+}
+
+.convenios-card h3 {
+    margin-top: 0;
+    color: rgb(122, 122, 122);
+}
+
+.convenios-card ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.convenios-card li {
+    padding: 5px 0;
+    font-size: 14px;
+}
+
+.next-page{
+    display: flex;
+    justify-content: flex-end;
+    text-decoration: none;
+    color: aqua;
+}
+
+.next-page:hover{
+    text-decoration: underline;
+}
+</style>

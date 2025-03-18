@@ -7,9 +7,9 @@
 <template>
     <header>
         <div class="conteiner">
-            <button class = "usuario"><i class="bi bi-person-fill"></i>Nome</button>
+            <button class = "btn-usuario"><i class="bi bi-person-fill"></i>Nome</button>
         
-            <button class="exit"><i class="bi bi-box-arrow-right"></i></button>
+            <button class="btn-home"><router-link class="link" to="/home">Home</router-link></button>
         </div>
     </header>
 </template>
@@ -23,7 +23,7 @@
     padding: 15px 15px;
 }
 
-.usuario{
+.btn-usuario{
     background-color: white;
     border-radius: 20px;
     font-size: 12pt;
@@ -33,7 +33,7 @@
     cursor: pointer;
   
 }
-.exit{
+.btn-home{
     background-color: white;
     border-radius: 20px;
     font-size: 12pt;
@@ -41,16 +41,24 @@
     padding: 10px 15px;  
     border: none;
     cursor: pointer;
+    text-decoration: none;
 }
 
-.usuario i {
-    margin-right: 15px;  
-  }
- 
+.link{
+    text-decoration: none;
+    color: black;
+}
 
-.exit:hover, .usuario:hover{
-    transform: scale(1.1);;
-    color: darkcyan;
+.btn-usuario i {
+    margin-right: 15px;  
+}
+ 
+.btn-usuario:hover {
+    transform: scale(1.1);
+}
+
+.btn-home:hover {
+    transform: scale(1.1);
 }
 
 .conteiner {
