@@ -15,38 +15,39 @@
 </template>
 
 <style scoped>
-    header{
-    background-color: rgb(122, 122, 122);
-    height: 70px;
+header{
+    background-color: var(--secondary-color);
+    height: 75px;
     border-bottom-left-radius: 65px; 
     border-bottom-right-radius: 65px; 
-    padding: 15px 15px;
+    padding: 16px 15px;
 }
 
 .btn-usuario{
-    background-color: white;
-    border-radius: 20px;
+    background-color: var(--primary-color);
     font-size: 12pt;
+    border-radius: 10px;
     align-items: center;  
-    padding: 10px 15px;  
+    padding: 8px 12px;  
     border: none;
     cursor: pointer;
-  
+    transition: background-color 0.3s ease-in-out;
 }
 .btn-home{
-    background-color: white;
-    border-radius: 20px;
+    background-color: var(--primary-color);
     font-size: 12pt;
+    border-radius: 10px;
     align-items: center;  
-    padding: 10px 15px;  
+    padding: 8px 12px;  
     border: none;
     cursor: pointer;
     text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
 }
 
 .link{
     text-decoration: none;
-    color: black;
+    color: var(--secondary-color);
 }
 
 .btn-usuario i {
@@ -54,11 +55,15 @@
 }
  
 .btn-usuario:hover {
-    transform: scale(1.1);
+    scale: 1.1;
+    border-radius: 10px;
+    background-color: var(--hover-color);
 }
 
 .btn-home:hover {
-    transform: scale(1.1);
+    border-radius: 10px;
+    scale: 1.1;
+    background-color: var(--hover-color);
 }
 
 .conteiner {

@@ -17,7 +17,14 @@ import Navbar from './components/Navbar.vue';
 
 </template>
 
-<style scoped>
+<style>
+
+:root{
+  --primary-color: #EEEEEE;
+  --secondary-color: #222831;
+  --terciary-color: #464d59;
+  --hover-color: #76ABAE ;
+}
 
 * {
     margin: 0;
@@ -27,7 +34,7 @@ import Navbar from './components/Navbar.vue';
 }
 
 body {
-    background-color: rgb(219, 219, 219);
+    background-color: var();
     height: 100vh; 
 }
 

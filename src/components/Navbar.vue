@@ -6,9 +6,7 @@
 
 <template>
      <nav class="menu-lateral">
-        <div class="logo">
-            <h4>LOGO</h4>
-        </div>
+        
 
         
         <ul>
@@ -97,8 +95,8 @@
 nav.menu-lateral{
 width: 70px;
 height: 100%;  
-background-color: white;
-padding: 20px 0 40px 1px;
+background-color: var(--secondary-color);
+padding: 70px 0 40px 1px;
 border-top-right-radius: 30px;
 border-bottom-right-radius: 30px;
 box-shadow: 1px 0px 0px 1px;
@@ -123,14 +121,14 @@ ul li.item-menu{
 }
 
 ul li.item-menu:hover{
-    background-color: darkcyan;
+    background-color: var(--terciary-color);
 }
 
 ul li.item-menu a{
-    color: black;
+    color: var(--primary-color);
     text-decoration: none;
     font-size: 20px;
-    padding: 15px 4%;
+    padding: 18px 4%;
     display: flex;
     line-height: 25px;
    
@@ -142,17 +140,12 @@ ul li.item-menu a{
 
 ul li.item-menu a .icon > i{
     font-size: 30px;
-    margin-left:10px;
-}
-
-.logo{
-    padding: 10px 10px;
-    
+    margin-left:50px;
 }
 
 nav.menu-lateral .submenu{
-    background-color: rgb(122, 122, 122);
-    padding: 10%;
+    background-color: var(--hover-color);
+    padding: 3%;
     display: none; 
 }
 
@@ -161,7 +154,8 @@ nav.menu-lateral .submenu{
 }
 
 .menu-lateral .item-menu .submenu a {
-    color: white;
+    color: var(--primary-color);
+    margin-left: 30px;
 }
 
 .menu-lateral .item-menu .submenu a:hover{
@@ -169,7 +163,7 @@ nav.menu-lateral .submenu{
 }
 
 .item-menu{
-    margin-left: -40px;
+    margin-left:-37px;
 }
 
 </style>

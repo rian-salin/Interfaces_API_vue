@@ -32,9 +32,9 @@
 <style scoped>
 
 section{
-  background-color: gray;
+  background-color: var(--terciary-color);
   width: 700px;
-  height: 780px;
+  height: 815px;
   margin-top:40px;
   margin-left: 100px;
   padding: 1%;
@@ -52,19 +52,21 @@ section{
 .titulo-data{
     display: flex;
     gap: 300px;
+    color: var(--primary-color);
+    text-decoration: underline;
 }
 
 label {
     font-size: 16px;
     font-weight: bold;
     margin-bottom: 3px;
-    color: #333;
+    color: var(--primary-color);
 }
 
 input {
     padding: 10px;
     width: 650px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--primary-color);
     border-radius: 5px;
     font-size: 16px;
 }
