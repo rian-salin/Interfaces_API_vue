@@ -7,9 +7,15 @@
 <template>
     <header>
         <div class="conteiner">
+            <div class="trilho">
+                <div>
+                    <div class="indicador"></div>
+                </div>
+            </div>
+            
             <button class = "btn-usuario"><i class="bi bi-person-fill"></i>Nome</button>
         
-            <button class="btn-home"><router-link class="link" to="/home">Home</router-link></button>
+            <button class="btn-home"><router-link class="link" to="/">Home</router-link></button>
         </div>
     </header>
 </template>
@@ -21,6 +27,35 @@ header{
     border-bottom-left-radius: 65px; 
     border-bottom-right-radius: 65px; 
     padding: 16px 15px;
+}
+
+.trilho{
+    width: 80px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: var(--primary-color);
+    position: relative; /* para o indicador ficar apenas dentro dessa DIV */
+    cursor: pointer;
+}
+
+.indicador{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    scale: .8;
+    background-color: var(--secondary-color);
+    transition: background-color 0.3s ease-in-out;
+    position: absolute;
+    left: 0;
+    
+}
+
+.trilho.dark .indicador{
+    left: 140px;
+}
+
+.indicador:hover{
+    background-color: var(--hover-color);
 }
 
 .btn-usuario{

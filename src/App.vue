@@ -26,6 +26,13 @@ import Navbar from './components/Navbar.vue';
   --hover-color: #76ABAE ;
 }
 
+[data-theme="dark"]{
+  --primary-color: #89A8B2;
+  --secondary-color: #B3C8CF;
+  --terciary-color: #E5E1DA;
+  --hover-color: #F1F0E8;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -34,7 +41,7 @@ import Navbar from './components/Navbar.vue';
 }
 
 body {
-    background-color: var();
+    background-color: var(--primary-color);
     height: 100vh; 
 }
 
