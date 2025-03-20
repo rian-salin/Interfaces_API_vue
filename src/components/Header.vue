@@ -1,19 +1,29 @@
 <script>
-    export default{
-        name: "Header"
+    export default {
+  name: "Header",
+  props: {
+    toggleTheme: {
+      type: Function,
+      required: true
+    },
+    theme: {
+      type: String,
+      required: true
     }
+  }
+};
 </script>
 
 <template>
     <header>
         <div class="conteiner">
-            <div class="trilho">
+            <div class="trilho" @click="toggleTheme">
                 <div>
-                    <div class="indicador"></div>
+                    <div class="indicador" :class="{ 'indicador-dark': theme === 'dark' }"></div>
                 </div>
             </div>
             
-            <button class = "btn-usuario"><i class="bi bi-person-fill"></i>Nome</button>
+            <button class ="btn-usuario"><i class="bi bi-person-fill"></i>Nome</button>
         
             <button class="btn-home"><router-link class="link" to="/">Home</router-link></button>
         </div>
@@ -44,14 +54,13 @@ header{
     border-radius: 50%;
     scale: .8;
     background-color: var(--secondary-color);
-    transition: background-color 0.3s ease-in-out;
     position: absolute;
     left: 0;
-    
+    transition: .5s;
 }
 
-.trilho.dark .indicador{
-    left: 140px;
+.indicador-dark{
+    left: 40px;
 }
 
 .indicador:hover{
@@ -67,6 +76,7 @@ header{
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
+    color: var(--terciary-color);
 }
 .btn-home{
     background-color: var(--primary-color);
@@ -82,7 +92,7 @@ header{
 
 .link{
     text-decoration: none;
-    color: var(--secondary-color);
+    color: var(--terciary-color);
 }
 
 .btn-usuario i {

@@ -1,17 +1,37 @@
 <script>
+
 import Header from './components/Header.vue';
 import Navbar from './components/Navbar.vue';
 
-  export default{
-    components: {
-      Header,
-      Navbar
+export default {
+  name: 'App',
+  components: {
+    Header,
+    Navbar
+  },
+  data() {
+    return {
+      // Define o estado do tema
+      theme: localStorage.getItem('theme') || 'light',
+    };
+  },
+  methods: {
+    // Função para alternar o tema
+    toggleTheme() {
+      this.theme = this.theme === 'light' ? 'dark' : 'light';
+      localStorage.setItem('theme', this.theme);
+      document.documentElement.setAttribute('data-theme', this.theme);
     }
+  },
+  mounted() {
+    // Define o tema ao montar o componente
+    document.documentElement.setAttribute('data-theme', this.theme);
   }
+};
 </script>
 
 <template>
-  <Header />
+  <Header :toggleTheme="toggleTheme" :theme="theme" />
   <Navbar />
   <router-view/>
 
@@ -20,17 +40,17 @@ import Navbar from './components/Navbar.vue';
 <style>
 
 :root{
-  --primary-color: #EEEEEE;
-  --secondary-color: #222831;
-  --terciary-color: #464d59;
-  --hover-color: #76ABAE ;
+  --primary-color: #F5ECE0;
+  --secondary-color: #5F99AE;
+  --terciary-color: #336D82;
+  --hover-color: #693382 ;
 }
 
 [data-theme="dark"]{
-  --primary-color: #89A8B2;
-  --secondary-color: #B3C8CF;
-  --terciary-color: #E5E1DA;
-  --hover-color: #F1F0E8;
+  --primary-color: #EEEEEE;
+  --secondary-color: #222831;  
+  --terciary-color: #464d59;
+  --hover-color: #76ABAE;
 }
 
 * {
