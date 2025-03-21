@@ -1,93 +1,91 @@
-<script>
-    export default{
-        name: "Navbar"
-    }
+<script setup >
+    import { ref } from "vue";
+
+    const navbar = ref(
+        [
+        {
+            label:"API",
+            icon:"bi bi-bank",
+            submenu: [
+                {label:"Cadastro",rota:"/CadastroApi"},
+            ]
+        },
+        {
+            label:"Cadastro",
+            icon:"bi bi-file-person-fill",
+            submenu: [
+                {label:"Usuários",rota:"#"},
+            ]
+        },
+        {
+            label:"Clientes",
+            icon:"bi bi-people-fill",
+            submenu: [],
+            rota:"#"
+        },   
+        {
+            label:"Parceiros",
+            icon:"bi bi-hand-thumbs-up",
+            submenu: [],
+            rota:"#"
+        },   
+        {
+            label:"Anúncios",
+            icon:"bi bi-tv",
+            submenu: [],
+            rota:"#"
+        },   
+        {
+            label:"Gifts",
+            icon:"bi bi-gift",
+            submenu: [],
+            rota:"#"
+        },   
+        {
+            label:"Financeiro",
+            icon:"bi bi-cash-coin",
+            submenu: [],
+            rota:"#"
+        },   
+        {
+            label:"Planos",
+            icon:"bi bi-file-earmark-medical",
+            submenu: [] ,
+            rota:"#"
+        },   
+        {
+            label:"Relatorios",
+            icon:"bi bi-file-earmark-check",
+            submenu: [],
+            rota:"#" 
+        },   
+        {
+            label:"Logs",
+            icon:"bi bi-gear",
+            submenu: [],
+            rota:"#"
+        },   
+    ]
+);
+
 </script>
 
 <template>
      <nav class="menu-lateral">
-        
-
-        
+                
         <ul>
-            <li class="item-menu">
-                <a href="#">
-                <span class="icon"><i class="bi bi-bank"></i></span>
-                <span class="txt-link">API</span>
+            <li v-for="(item, index) in navbar" :key="index" class="item-menu">
+                <a :href="item.rota">
+                <span class="icon"><i :class="item.icon"></i></span>
+                <span class="txt-link" >{{ item.label }}</span>
                 </a>
-                <ul class="submenu">
-                    <li><router-link to="/CadastroApi">Cadastro</router-link></li>
-                </ul>
-            </li>
+                <ul v-if="item.submenu.length > 0" class="submenu">
 
-            <li class="item-menu">
-                <a href="#">
-                <span class="icon"><i class="bi bi-file-person-fill"></i>  </span>
-                <span class="txt-link">Cadastro</span>
-                </a>
-                <ul class="submenu">
-                    <li></li>
-                    <li><a href="#">Usuários</a></li>
+                    <li v-for="(it,ind) in item.submenu" :key="ind" ><router-link :to="it.rota">{{it.label}}</router-link></li>
                 </ul>
-
-            </li>
-            <li class="item-menu">
-                <a href="#">
-                <span class="icon"><i class="bi bi-people-fill"></i>
-                </span>
-                <span class="txt-link">Clientes</span>
-                </a>
-            </li>
-            <li class="item-menu">
-                <a href="#">
-                <span class="icon"><i class="bi bi-hand-thumbs-up"></i>
-                </span>
-                <span class="txt-link">Parceiros</span>
-                </a>
-            </li>
-            <li class="item-menu">
-                <a href="#">
-                <span class="icon"><i class="bi bi-tv"></i></span>
-                <span class="txt-link">Anúncios</span>
-                </a>
-            </li>
-            <li class="item-menu">
-                <a href="#">
-                <span class="icon"><i class="bi bi-gift"></i>
-                </span>
-                <span class="txt-link">Gifts</span>
-                </a>
-            </li>
-            <li class="item-menu">
-                <a href="#">
-                <span class="icon"><i class="bi bi-cash-coin"></i>
-                </span>
-                <span class="txt-link">Financeiro</span>
-                </a>
-            </li>
-            <li class="item-menu">
-                <a href="#">
-                <span class="icon"><i class="bi bi-file-earmark-medical">
-                </i></span>
-                <span class="txt-link">Planos</span>
-                </a>
-            </li>
-            <li class="item-menu">
-                <a href="#">
-                <span class="icon"><i class="bi bi-file-earmark-check">
-                </i></span>
-                <span class="txt-link">Relatorios</span>
-                </a>
-            </li>
-            <li class="item-menu">
-                <a href="#">
-                <span class="icon"><i class="bi bi-gear"></i>
-                </span>
-                <span class="txt-link">Log</span>
-                </a>
             </li>
         </ul>
-
+        
     </nav>
 </template>
 
