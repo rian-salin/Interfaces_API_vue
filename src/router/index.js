@@ -18,6 +18,18 @@ const routes = [
     name: 'Homol&Produc',
     
     component: () => import(/* webpackChunkName: "Homol&Produc" */ '../views/Homol&ProducView.vue')
+  },
+  {
+    path: '/Cep',
+    name: 'Cep',
+    
+    component: () => import(/* webpackChunkName: "Cep" */ '../views/CepView.vue')
+  },
+  {
+    path: '/PrevisaoTempo',
+    name: 'PrevisaoTempo',
+    
+    component: () => import(/* webpackChunkName: "PrevisaoTempo" */ '../views/PrevisaoTempoView.vue')
   }
 ]
     

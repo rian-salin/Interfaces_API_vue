@@ -8,6 +8,8 @@
             icon:"bi bi-bank",
             submenu: [
                 {label:"Cadastro",rota:"/CadastroApi"},
+                {label:"Cep",rota:"/Cep"},
+                {label:"Tempo",rota:"/PrevisaoTempo"}
             ]
         },
         {
