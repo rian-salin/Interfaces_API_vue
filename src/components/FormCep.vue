@@ -1,15 +1,19 @@
 <script setup>
 import { ref } from 'vue';
-import axios from 'axios';
+import { buscarCep } from '@/entities';
+
+
 
 const cep = ref('');
 const endereco = ref(null);
 
-const buscarCep = async () => {
+const buscCep = async () => {
     if (cep.value.length === 8) {
         try {
-            const response = await axios.get(`http://localhost:3000/cep/${cep.value}`);
-            endereco.value = response.data;
+
+            const response = await buscarCep(cep.value);
+            endereco.value = response;
+
         } catch (error) {
             console.error('Erro ao buscar o CEP', error);
         }
@@ -17,6 +21,7 @@ const buscarCep = async () => {
         alert('Digite um CEP válido com 8 dígitos.');
     }
 };
+
 </script>
 
 <template>
@@ -24,7 +29,7 @@ const buscarCep = async () => {
         <div class="container">
         <h2>Buscar CEP</h2>
         <input v-model="cep" placeholder="Digite o CEP" />
-        <button @click="buscarCep">Buscar</button>
+        <button @click="buscCep">Buscar</button>
 
         <div v-if="endereco">
             <h3>Endereço Encontrado:</h3>

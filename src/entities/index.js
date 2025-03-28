@@ -1,0 +1,1 @@
+export { buscarCep } from './cep';
