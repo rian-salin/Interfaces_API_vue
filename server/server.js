@@ -3,34 +3,24 @@ const axios = require('axios');
 const cors = require('cors');
 
 const app = express();
-const port = 3000;
+const PORT = 3000;
 
-// Habilita o CORS para permitir que o frontend acesse o backend
 app.use(cors());
+app.use(express.json());
 
-// Rota para consultar o CEP
-app.get('/consultar-cep', async (req, res) => {
-    const cep = req.query.cep; // Obtendo o CEP da query string
+app.get('/cep/:cep', async (req, res) => {
+    const { cep } = req.params;
 
-    if (cep && cep.length === 8) {
-        try {
-            // Fazendo a requisição para a API ViaCEP
-            const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
-            
-            if (response.data.erro) {
-                res.status(404).json({ error: 'CEP não encontrado.' });
-            } else {
-                res.json(response.data); // Retorna os dados do CEP ao frontend
-            }
-        } catch (error) {
-            res.status(500).json({ error: 'Erro ao consultar o CEP. Tente novamente mais tarde.' });
-        }
-    } else {
-        res.status(400).json({ error: 'Por favor, insira um CEP válido com 8 dígitos.' });
+    try {
+        const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
+        res.json(response.data);
+    } catch (error) {
+        res.status(500).json({ error: 'Erro ao buscar o CEP' });
     }
 });
 
-// Inicia o servidor
-app.listen(port, () => {
-    console.log(`Servidor backend rodando em http://localhost:${port}`);
+app.listen(PORT, () => {
+    console.log(`Servidor rodando na porta ${PORT}`);
+    console.log(`http://localhost:${PORT}`);
 });
+
