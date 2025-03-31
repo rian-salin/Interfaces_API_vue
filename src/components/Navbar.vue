@@ -9,7 +9,7 @@
             submenu: [
                 {label:"Cadastro",rota:"/CadastroApi"},
                 {label:"Cep",rota:"/Cep"},
-                {label:"Tempo",rota:"/PrevisaoTempo"}
+                {label:"Clima",rota:"/PrevisaoTempo"}
             ]
         },
         {
